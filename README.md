@@ -86,14 +86,14 @@ All experiments run from `notebooks/02_explore_data.ipynb`, top to bottom:
 Only step 5 is long-running; steps 1-4 and 6 take seconds to minutes.
 
 ## Metrics
-**Accuracy** -- a response is correct if its stated conclusion and the
+**Accuracy** - a response is correct if its stated conclusion and the
 gold answer share a fully-contained set of normalized words in either
 direction. Scored against the model's *stated conclusion* (text after
 markers like "therefore" / "final answer is"), not the full response,
 to avoid crediting a correct fact mentioned in passing while reasoning
 toward a different, wrong, final answer.
 
-**Self-contradiction** -- flags responses where scoring the full text
+**Self-contradiction** -flags responses where scoring the full text
 disagrees with scoring only the stated conclusion (i.e. the response
 supports one answer while reasoning, then explicitly concludes another).
 
