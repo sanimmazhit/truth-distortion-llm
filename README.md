@@ -26,39 +26,41 @@ self-verification prompting mitigate this degradation?
   destabilizes the model's stated reasoning more than its answers.
 
 ## Pipeline Overview
-load_hotpotqa()                              -> 50 HotpotQA examples (seed=42)
-create_noisy_context() / generate_wrong_answer()  -> noisy / adversarial conditions
-build_prompt() / build_adversarial_prompt()   -> the 3 condition prompts
-generate_with_verification()                  -> first answer + post-verification answer
-ExperimentRunner.run()                        -> results/experiment_results.csv (150 rows)
-metrics.is_correct() / is_self_contradictory()-> accuracy + contradiction scores
-02_explore_data.ipynb (scoring + plotting cells) -> results/*.png (3 figures)
+
+    load_hotpotqa()                                    -> 50 HotpotQA examples (seed=42)
+    create_noisy_context() / generate_wrong_answer()    -> noisy / adversarial conditions
+    build_prompt() / build_adversarial_prompt()         -> the 3 condition prompts
+    generate_with_verification()                        -> first answer + post-verification answer
+    ExperimentRunner.run()                              -> results/experiment_results.csv (150 rows)
+    metrics.is_correct() / is_self_contradictory()      -> accuracy + contradiction scores
+    02_explore_data.ipynb (scoring + plotting cells)    -> results/*.png (3 figures)
 
 ## Repository Structure
-.
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── notebooks/
-│   ├── 01_test_connection.ipynb   # verifies Ollama connectivity
-│   └── 02_explore_data.ipynb      # full pipeline: exploration -> smoke test -> 50-example run -> scoring -> figures
-├── src/
-│   ├── models/
-│   │   └── ollama_client.py       # OllamaClient -- single-turn (.generate) and multi-turn (.chat) wrapper
-│   ├── data/
-│   │   ├── loader.py              # load_hotpotqa(), get_supporting_sentences()
-│   │   ├── distortion.py          # corrupt_fact(), create_noisy_context(), generate_wrong_answer()
-│   │   ├── prompting.py           # build_prompt(), build_adversarial_prompt()
-│   │   └── verification.py        # generate_with_verification()
-│   ├── evaluation/
-│   │   └── metrics.py             # is_correct(), is_self_contradictory(), classify_verification_effect()
-│   └── experiment.py              # ExperimentRunner -- orchestrates all conditions across the dataset
-└── results/
-├── experiment_results.csv     # 150 rows: 50 examples x 3 conditions
-├── smoke_test.csv             # 3-example pilot run
-├── accuracy_by_condition.png
-├── contradiction_rate_by_condition.png
-└── verification_breakdown_by_condition.png
+
+    .
+    ├── README.md
+    ├── requirements.txt
+    ├── .gitignore
+    ├── notebooks/
+    │   ├── 01_test_connection.ipynb   # verifies Ollama connectivity
+    │   └── 02_explore_data.ipynb      # full pipeline: exploration -> smoke test -> 50-example run -> scoring -> figures
+    ├── src/
+    │   ├── models/
+    │   │   └── ollama_client.py       # OllamaClient -- single-turn (.generate) and multi-turn (.chat) wrapper
+    │   ├── data/
+    │   │   ├── loader.py              # load_hotpotqa(), get_supporting_sentences()
+    │   │   ├── distortion.py          # corrupt_fact(), create_noisy_context(), generate_wrong_answer()
+    │   │   ├── prompting.py           # build_prompt(), build_adversarial_prompt()
+    │   │   └── verification.py        # generate_with_verification()
+    │   ├── evaluation/
+    │   │   └── metrics.py             # is_correct(), is_self_contradictory(), classify_verification_effect()
+    │   └── experiment.py              # ExperimentRunner -- orchestrates all conditions across the dataset
+    └── results/
+        ├── experiment_results.csv     # 150 rows: 50 examples x 3 conditions
+        ├── smoke_test.csv             # 3-example pilot run
+        ├── accuracy_by_condition.png
+        ├── contradiction_rate_by_condition.png
+        └── verification_breakdown_by_condition.png
 
 ## Setup
 - Python 3.11 (tested on 3.11.5)
