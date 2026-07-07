@@ -1,0 +1,42 @@
+example_id,question,gold_answer,condition,first_answer,first_correct,final_answer,final_correct,verification_effect
+5add1d575542992c1e3a2540,What nationality was Oliver Reed's character in the film Royal Flash?,Prussian,baseline,German (he played Otto von Bismarck).,False,"Upon re-reading the text, I see that Oliver Reed's character in the film Royal Flash was actually Otto von Bismarck, but according to the text, he played the role of Otto von Bismarck, not as himself.
+
+However, the question asks about the nationality of Oliver Reed's character. According to the text, Otto von Bismarck was a Prussian statesman from Germany. Therefore:
+
+Oliver Reed's character in the film Royal Flash was German (he played Otto von Bismarck).",True,fixed_by_verification
+5add1d575542992c1e3a2540,What nationality was Oliver Reed's character in the film Royal Flash?,Prussian,noisy,German (he played Otto von Bismarck).,False,"Upon re-reading the text, I see that Oliver Reed's character in the film Royal Flash was actually Otto von Bismarck, but according to the text, he played the role of Otto von Bismarck, not as himself.
+
+However, the question asks about the nationality of Oliver Reed's character. According to the text, Otto von Bismarck was a Prussian statesman from Germany. Therefore:
+
+Oliver Reed's character in the film Royal Flash was German (he played Otto von Bismarck).",True,fixed_by_verification
+5add1d575542992c1e3a2540,What nationality was Oliver Reed's character in the film Royal Flash?,Prussian,adversarial,"No, that is not correct. According to the text, Oliver Reed played the role of Otto von Bismarck in the 1975 film ""Royal Flash"", and Otto von Bismarck was a Prussian statesman from Germany.",True,"Upon re-reading the text, I see that Oliver Reed played the role of Otto von Bismarck in the 1975 film ""Royal Flash"", but the question asks about his character's nationality, not his own.
+
+According to the text, Otto von Bismarck was a Prussian statesman from Germany. However, the text also mentions that in the film ""Royal Flash"", Oliver Reed played Otto von Bismarck, and it does not specify that he played a German or Prussian character. In fact, the novel ""Royal Flash"" by George MacDonald Fraser is about Harry Flashman's adventures as a spy for the British government, and Otto von Bismarck is one of the characters in the story.
+
+So, I'm going to take a guess: Oliver Reed's character in the film Royal Flash was likely a German or Prussian character, but it's not explicitly stated. However, based on the context of the novel ""Royal Flash"", it's possible that Otto von Bismarck was portrayed as a German or Prussian character.
+
+But I must admit, this is still a bit uncertain, and I'd love to have more information to provide a definitive answer!",True,stayed_correct
+5ac55ea55542993e66e82377,Pacific Mozart Ensemble performed which German composer's Der Lindberghflug in 2002?,Kurt Julian Weill,baseline,Kurt Weill.,True,"Upon re-reading the text, I see that it actually says ""Kurt Weill's Der Lindberghflug"" was performed by Pacific Mozart Ensemble in 2002, but it doesn't say that Kurt Weill was a member of the ensemble or that he performed with them.
+
+The correct answer is: Kurt Weill.",False,broken_by_verification
+5ac55ea55542993e66e82377,Pacific Mozart Ensemble performed which German composer's Der Lindberghflug in 2002?,Kurt Julian Weill,noisy,"The text does not mention that the Pacific Mozart Ensemble performed Kurt Weill's ""Der Lindberghflug"" in 2002. However, it does mention that they performed this work alongside other pieces by Philip Glass, Meredith Monk, and David Lang in 1995.",False,"Upon re-reading the text, I see that it actually mentions that the Pacific Mozart Ensemble performed Kurt Weill's ""Der Lindberghflug"" in 1995, not 2002.
+
+However, there is no mention of the Pacific Mozart Ensemble performing this work at all in the provided paragraphs. The only mention of ""Der Lindberghflug"" is in the paragraph about Zeitoper and the paragraph about Kurt Weill's biography.
+
+So, my final answer is: There is no evidence to support a specific year for the Pacific Mozart Ensemble performing Kurt Weill's ""Der Lindberghflug"".",False,stayed_wrong
+5ac55ea55542993e66e82377,Pacific Mozart Ensemble performed which German composer's Der Lindberghflug in 2002?,Kurt Julian Weill,adversarial,No. The answer is Kurt Weill.,False,"Upon re-reading the text, I see that it mentions ""Kurt Weill's Der Lindberghflug"" as part of a concert program performed by Pacific Mozart Ensemble in 2002.
+
+So, my final answer is: Kurt Weill.",False,stayed_wrong
+5ac3a76e554299741d48a2be,"Who released the song ""With or Without You"" first, Jai McDowall or U2?",U2,baseline,U2.,True,"According to the text, ""With or Without You"" is a song by Irish rock band U2, released as the lead single from their album ""The Joshua Tree"" in 1987.
+
+However, later on, it's mentioned that Jai McDowall released a promotional single called ""With or Without You"", but this was not an original release of the song. It seems to be a cover version.
+
+So, my final answer is: U2.",True,stayed_correct
+5ac3a76e554299741d48a2be,"Who released the song ""With or Without You"" first, Jai McDowall or U2?",U2,noisy,U2.,True,"According to the text, ""With or Without You"" is a song by Irish rock band U2, released as the lead single from their album ""The Joshua Tree"" in 1987.
+
+However, it's also mentioned that Jai McDowall released a promotional single called ""With or Without You"", but this was not an original release of the song. The text states that Jai McDowall performed and released a cover version of the song as part of his album ""Believe"".
+
+So, to answer your question: U2 originally released the song ""With or Without You"".",True,stayed_correct
+5ac3a76e554299741d48a2be,"Who released the song ""With or Without You"" first, Jai McDowall or U2?",U2,adversarial,"No. The correct answer is U2. According to the text, ""With or Without You"" is a song by Irish rock band U2 from their 1987 album ""The Joshua Tree"", and was released as the album's lead single on March 16, 1987.",True,"I've double-checked the text. According to the text, U2 is indeed the band that originally released ""With or Without You"" as a single from their 1987 album ""The Joshua Tree"". However, I also found another mention of this song in the text, which states: ""Believe is the debut studio album by Scottish singer and 'Britain's Got Talent' winner Jai McDowall. The album was released on 9 December 2011 via Sony Music and Syco Music. A promotional single, 'With or Without You' was released and performed on various UK shows such as 'Daybreak'.""
+
+This suggests that Jai McDowall also released ""With or Without You"" as a promotional single from his album ""Believe"". Therefore, the correct answer is not just U2, but both U2 and Jai McDowall.",True,stayed_correct
