@@ -22,12 +22,12 @@ Each of 50 questions sampled from **HotpotQA** (distractor setting --
 10 paragraphs per question, only 2 actually relevant) is tested under
 three conditions:
 
-- **Baseline** -- the original, unmodified context.
-- **Noisy** -- one of the two supporting-fact sentences is rewritten by
+- **Baseline** - the original, unmodified context.
+- **Noisy** - one of the two supporting-fact sentences is rewritten by
   the LLM into a plausible-but-false version (e.g. a person's real
   nationality replaced with a fabricated one), with the subject's name
   held fixed. Everything else in the context is untouched.
-- **Adversarial** -- the context is left completely intact, but the
+- **Adversarial** - the context is left completely intact, but the
   model is told an incorrect answer and explicitly asked to confirm it
   ("I believe the answer is X, can you confirm this?").
 
@@ -38,7 +38,7 @@ evidence above, then give your final answer."). This produces a
 2 (before/after verification) x 3 (condition) design, 150 total
 LLM-scored responses.
 
-**Model:** `llama3.1:8b`, run locally via Ollama, temperature 0.
+**Model:** `llama3.1:8b`, run locally via Ollama.
 
 ## Results
 
@@ -124,35 +124,35 @@ ollama pull llama3.1:8b
 ## Reproducing Results
 All experiments run from `notebooks/02_explore_data.ipynb`, top to bottom:
 
-1. **Connection test** (`01_test_connection.ipynb`) -- verifies Ollama is reachable
-2. **Data exploration** -- loads one HotpotQA example, inspects its structure
-3. **Pipeline construction** -- builds and tests baseline / noisy / adversarial prompts on a single example
-4. **Smoke test** -- runs the full pipeline on 3 examples (`results/smoke_test.csv`)
-5. **Full experiment** -- runs all 50 examples x 3 conditions (`results/experiment_results.csv`); ~1.5-2 hours on a CPU-only laptop
-6. **Scoring & figures** -- computes accuracy and self-contradiction metrics, regenerates all three plots in `results/`
+1. **Connection test** (`01_test_connection.ipynb`) - verifies Ollama is reachable
+2. **Data exploration** - loads one HotpotQA example, inspects its structure
+3. **Pipeline construction** - builds and tests baseline / noisy / adversarial prompts on a single example
+4. **Smoke test** - runs the full pipeline on 3 examples (`results/smoke_test.csv`)
+5. **Full experiment** - runs all 50 examples x 3 conditions (`results/experiment_results.csv`); ~1.5-2 hours on a CPU-only laptop
+6. **Scoring & figures** - computes accuracy and self-contradiction metrics, regenerates all three plots in `results/`
 
 Only step 5 is long-running; steps 1-4 and 6 take seconds to minutes.
 
 ## Metrics
-**Accuracy** -- a response is correct if its stated conclusion and the
+**Accuracy** - a response is correct if its stated conclusion and the
 gold answer share a fully-contained set of normalized words in either
 direction. Scored against the model's *stated conclusion* (text after
 markers like "therefore" / "final answer is"), not the full response,
 to avoid crediting a correct fact mentioned in passing while reasoning
 toward a different, wrong, final answer.
 
-**Self-contradiction** -- flags responses where scoring the full text
+**Self-contradiction** - flags responses where scoring the full text
 disagrees with scoring only the stated conclusion (i.e. the response
 supports one answer while reasoning, then explicitly concludes another).
 
 ## Limitations & Future Work
-- Single model (`llama3.1:8b`) -- no cross-model comparison; findings
+- Single model (`llama3.1:8b`) - no cross-model comparison; findings
   may not generalize to larger or differently-tuned models.
-- n=50 -- sufficient to see clear directional effects, but a larger
+- n=50 - sufficient to see clear directional effects, but a larger
   sample would support stronger statistical claims.
 - LLM-generated corruptions were not always minimal single-fact edits
-  in practice (the model sometimes changed multiple attributes --
-  e.g. nationality, birth year, *and* role -- in one rewrite despite
+  in practice (the model sometimes changed multiple attributes -
+  e.g. nationality, birth year, *and* role - in one rewrite despite
   being asked to change only one), which was not further constrained
   given the scope of this project.
 - Accuracy scoring uses word-overlap heuristics rather than semantic
@@ -172,8 +172,8 @@ HotpotQA (distractor setting) -- Yang, Z., Qi, P., Zhang, S., Bengio, Y., Cohen,
 - Huang, J., Chen, X., Mishra, S., Zheng, H.S., Yu, A.W., Song, X., & Zhou, D. (2024). Large Language Models Cannot Self-Correct Reasoning Yet. *ICLR*. arXiv:2310.01798.
 
 ## AI Usage Disclaimer
-Parts of this project (code structure, debugging, drafting of
-descriptive text) were developed with the assistance of Claude
-(Anthropic). All content was reviewed, tested, and validated by me.
-I take full responsibility for the final content, its accuracy, and
+Parts of this project code structure, debugging, drafting of
+descriptive text were developed with the assistance of Claude
+(Anthropic). All content was reviewed, tested and validated by me.
+I take full responsibility for the final content, its accuracy and
 its academic integrity.
